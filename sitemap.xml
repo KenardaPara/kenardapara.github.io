@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://kenardapara.com/categories/</loc>
+    <loc>https://kenardapara.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kenardapara.com/</loc>
+    <loc>https://kenardapara.github.io/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kenardapara.com/tags/</loc>
+    <loc>https://kenardapara.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   

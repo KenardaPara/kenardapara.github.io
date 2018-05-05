@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Kenarda Para</title>
-    <link>https://kenardapara.github.io/categories/</link>
+    <link>https://www.kenardapara.com/categories/</link>
     <description>Recent content in Categories on Kenarda Para</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
     
-	<atom:link href="https://kenardapara.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.kenardapara.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

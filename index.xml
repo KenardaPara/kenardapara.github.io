@@ -2,14 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kenarda Para</title>
-    <link>https://kenardapara.github.io/</link>
+    <link>https://www.kenardapara.com/</link>
     <description>Recent content on Kenarda Para</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Wed, 02 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://kenardapara.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.kenardapara.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hakkında</title>
+      <link>https://www.kenardapara.com/about/</link>
+      <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.kenardapara.com/about/</guid>
+      <description>KenardaPara nedir ? İnternetteki sayısız blogdan bir başkası. Hitap ettiği kitle, orta-direk Türk vatandaşı. Tasarruflar ve Yatırımların konu edindiği ve yazıların çoğunlukla açık verilerle destekleneceği bir ortam. Şu an için tek kişi @VaryemezAmca dan oluşmaktadır. Ancak yazılarını verilerle destekleyebilen herkese açıktır
+Ahh yeni bir şu hisseyi alın blogu Bilakis, KenardaPara nın amacı belki zorla, belki disiplin ve istikrarla yaptığınız birikimlerin düşük maliyetli yatırımlarla hayatınıza nasıl katkı sağlayabileceğini göstermek
+Dediklerin yatırım tavsiyesi mi peki ?</description>
+    </item>
     
   </channel>
 </rss>

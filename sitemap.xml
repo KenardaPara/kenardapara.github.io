@@ -3,17 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kenardapara.github.io/categories/</loc>
+    <loc>https://www.kenardapara.com/about/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kenardapara.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kenardapara.github.io/</loc>
+    <loc>https://www.kenardapara.com/</loc>
+    <lastmod>2017-08-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kenardapara.github.io/tags/</loc>
+    <loc>https://www.kenardapara.com/tags/</loc>
     <priority>0</priority>
   </url>
   

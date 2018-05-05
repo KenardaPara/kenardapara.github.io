@@ -8,6 +8,16 @@
   </url>
   
   <url>
+    <loc>https://www.kenardapara.com/post/yatirimlar/</loc>
+    <lastmod>2018-05-05T21:56:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kenardapara.com/post/birikimler/</loc>
+    <lastmod>2018-05-05T16:09:17+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.kenardapara.com/categories/</loc>
     <priority>0</priority>
   </url>
@@ -15,6 +25,12 @@
   <url>
     <loc>https://www.kenardapara.com/</loc>
     <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.kenardapara.com/post/</loc>
+    <lastmod>2018-05-05T21:56:52+02:00</lastmod>
     <priority>0</priority>
   </url>
   

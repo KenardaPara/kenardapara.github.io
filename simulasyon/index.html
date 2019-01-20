@@ -96,18 +96,24 @@
             
             <div class="row">
                 <div class="col">
-                    <form id="former" action="#" method="get">
+                    <form id="former" action="#" method="get" class="needs-validation">
                         <div class="form-row align-items-center">
                             
                             <div class="col">
                                 <label for="start" >Baslangic Yili</label>
-                                <input type="text" name="start" id="datepicker" class="form-control" placeholder="Baslangic Yili" aria-describedby="dateHelper">
+                                <input type="text" name="start" id="datepicker" class="form-control" placeholder="Baslangic Yili" aria-describedby="dateHelper" required>
+                                <div class="invalid-feedback">
+                                    Lutfen tarih giriniz!
+                                </div>
                                 <small id="dateHelper" class="form-text text-muted"> Birikim yapamaya basladiginiz tarih. En erken 2003</small>
                             </div>
                             <div class="col">
                                 <label for="miktar" > Miktar</label>
                                 <div class="input-group">
-                                    <input type="text" id="miktar" name="miktar" class="form-control" placeholder="Miktar" aria-describedby="miktarHelper">
+                                    <input type="text" id="miktar" name="miktar" class="form-control" placeholder="Miktar" aria-describedby="miktarHelper" min=1 required>
+                                    <div class="invalid-feedback">
+                                        Lutfen TL cinsinden bir miktar giriniz!
+                                    </div>
                                     <div class="input-group-append">
                                         <div class="input-group-text">TL</div>
                                     </div>
@@ -130,7 +136,7 @@
 
                             <div class="form-group col">
                                 <label for="devlet"  >Devlet Katkisi Fonu</label>
-                                <input type="text" id="devlet" name="devlet" class="form-control" list="fonlarimiz" id="devlet-fon" placeholder="Devlet Katkisi Fonu Kodu" aria-describedby="devletHelper">
+                                <input type="text" id="devlet" name="devlet" class="form-control" list="fonlarimiz" id="devlet-fon" placeholder="Devlet Katkisi Fonu Kodu" aria-describedby="devletHelper" required>
                                 <small id="devletHelper" class="form-text text-muted"> 2013 yilindan itibaren devlet katkiniz hangi devlet katki fonunda degerlendirilecek  </small>
                             </div>
                         </div>

@@ -85,7 +85,7 @@ function addFon(kod, agirlik, ilk = false){
         <div class="form-group col-9">
         <label for="fon" class="${labelClass}">BES Fonu</label>
         ${aciklamaKod}
-          <input type="list" class="fonadi form-control" list="fonlarimiz" value="${kod}">
+          <input type="list" class="fonadi form-control" list="fonlarimiz" value="${kod}" required>
            ${fonlar}
           <input type="hidden" class="fonkodu">
         </div>
@@ -94,7 +94,13 @@ function addFon(kod, agirlik, ilk = false){
 
          <label for="fonoran" class="${labelClass}">For Orani</label>
          ${aciklamaOran}
-        <input type="number" class="fonoran form-control" value="${agirlik}">
+         <div class="input-group">
+          <div class="input-group-prepend">
+             <div class="input-group-text">%</div>
+          </div>
+
+          <input type="number" class="fonoran form-control" value="${agirlik}" min=1 max=100 required>
+         </div>
         </div>
 
         <div class="form-group col-1" visibility=${gozuksun}>

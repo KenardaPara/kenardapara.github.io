@@ -1,0 +1,191 @@
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <script>
+         $( function() {
+             $( "#datepicker" ).datepicker(
+                 {
+                     minDate: new Date(2003, 1 , 1),
+                     dateFormat: "yy-mm-dd"
+                 });
+         } );
+        </script>
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script type="text/javascript"  src="papaparse.min.js"></script>
+        <script type="text/javascript"  src="charts.js"></script>
+        <script type="text/javascript"  src="ui.js"></script>
+
+        <style>
+         .numberCircle {
+             width: 120px;
+             line-height: 120px;
+             border-radius: 50%;
+             text-align: center;
+             font-size: 32px;
+             border: 2px solid #666;
+         }
+        </style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript">
+         
+         // Load the Visualization API and the corechart package.
+         google.charts.load('current', {'packages':['corechart']});
+         const urlParams = new URLSearchParams(window.location.search);
+         
+         const graphData = new GraphData(urlParams);
+         console.log("graphData", graphData);
+         const TLData = [graphData.besPortfoyTl, graphData.besPortfoyEuroTL, graphData.besPortfoyUSDTL];
+
+
+         
+         const urlParams2 = new URLSearchParams(window.location.search);
+         $(document).ready(function(){initForm(urlParams2)});
+         $(document).ready(function(){tarihAciklama(graphData)});
+         const charts = [graphData.besPortfoyTl, graphData.USDPortfoy, graphData.EUROPortfoy, graphData.AltinPortfoy, graphData.FaizPortfoy];
+         // Set a callback to run when the Google Visualization API is loaded.
+         google.charts.setOnLoadCallback(function(){
+             getSonBiriken(charts).then(x => drawSingleBarChart(x, "karisik", "Birkimlerin Bugunku Degeri")).catch(errorLogger);
+             //             getGetiri(charts).then(printPromise("charts")).then(x => drawBarChart(x.map(k => getSample(k)), "oranlar")).catch(errorLogger);
+
+             getBirikim(charts).then(a => drawLineChart(a, "portfoy_tl", "Birikimlerin Zaman Icindeki Degisimi")).catch(errorLogger)
+
+             
+
+             
+             /* graphData.besPortfoyTl.then(function(a){
+              *     drawLineChart(a, "portfoy_tl");}).catch(errorLogger);
+              * graphData.besPortfoyUSDTL.then(function(a){
+              *     drawLineChart(a, "portfoy_dolar_tl");}).catch(errorLogger);
+              * graphData.USDPortfoy.then(function(a){
+              *     drawLineChart(a, "dolar_tl");}).catch(errorLogger);
+              * graphData.besPortfoyEuroTL.then(function(a){
+              *     drawLineChart(a, "portfoy_euro_tl");}).catch(errorLogger);
+              * graphData.EUROPortfoy.then(function(a){
+              *     drawLineChart(a, "euro_tl");}).catch(errorLogger); */
+             
+             //Promise.all(TLData).then(x => drawChart(x, "portfoy_tumu")); 
+
+         });
+         
+         // Callback that creates and populates a data table,
+         // instantiates the pie chart, passes in the data and
+         // draws it.
+        </script>
+
+        <script>
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col">
+                    <form id="former" action="#" method="get">
+                        <div class="form-row align-items-center">
+                            
+                            <div class="col">
+                                <label for="start" >Baslangic Yili</label>
+                                <input type="text" name="start" id="datepicker" class="form-control" placeholder="Baslangic Yili" aria-describedby="dateHelper">
+                                <small id="dateHelper" class="form-text text-muted"> Birikim yapamaya basladiginiz tarih. En erken 2003</small>
+                            </div>
+                            <div class="col">
+                                <label for="miktar" > Miktar</label>
+                                <div class="input-group">
+                                    <input type="text" id="miktar" name="miktar" class="form-control" placeholder="Miktar" aria-describedby="miktarHelper">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">TL</div>
+                                    </div>
+                                </div>
+                                <small id="miktarHelper" class="form-text text-muted"> Basladiginiz tarihten itibaren her ay kenara ne kadar TL koyuyorsunuz </small>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input type="checkbox" id="inflationAdj" name="inflationAdj" class="form-check-input" >
+                                    <label for="inflationAdj" class="form-check-label">Enflasyon Oraninda Odemeler Arttirilsin</label>
+                                </div>
+                                
+                            </div>
+
+                            
+                        </div>
+                        
+                        <div class="form-row">
+
+                            <div class="form-group col">
+                                <label for="devlet"  >Devlet Katkisi Fonu</label>
+                                <input type="text" id="devlet" name="devlet" class="form-control" list="fonlarimiz" id="devlet-fon" placeholder="Devlet Katkisi Fonu Kodu" aria-describedby="devletHelper">
+                                <small id="devletHelper" class="form-text text-muted"> 2013 yilindan itibaren devlet katkiniz hangi devlet katki fonunda degerlendirilecek  </small>
+                            </div>
+                        </div>
+                        <div id="fons">
+                        </div>
+                        
+                        <div class="button">
+                            <button type="button" onclick='addFon("","");' class="btn btn-outline-primary">Fon Ekle</button>
+                        </div>
+                
+                
+                        <div class="button">
+                <button type="submit" onclick='duzelt();' class="btn btn-primary btn-lg">Ne Paralar Kacirdim ? </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div id="aciklama">                                               
+                        <div id="tarih-aciklama" class="invisible"> Not Sectiginiz Emeklilik Fonu <span id="fon-neden"> </span>'nin  <span  id="fon-tarih"> </span> tarihinden once verisi olmadigindan analiz bu tarihte baslamistir </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col-12">
+                    <div id="karisik"></div>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col-12">
+                    <div id="portfoy_tl"></div>
+                </div>
+            </div>
+            
+
+
+                
+            </div>
+
+                        <!--Div that will hold the pie chart-->
+
+        
+
+               </div>
+
+        
+
+        
+    </body>
+</html>

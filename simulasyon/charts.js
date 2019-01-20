@@ -355,7 +355,7 @@ function drawLineChart(fiyatlar, divId, title) {
         vAxis: {minValue:0, maxValue:200},               
         title: title,
         curveType: 'function',
-        legend: { position: 'right' , fontSize: 6},
+        legend: { position: 'bottom' , fontSize: 6},
         explorer: { 
             actions: ['dragToZoom', 'rightClickToReset'],
             axis: 'horizontal',
